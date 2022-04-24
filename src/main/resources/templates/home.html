@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
 	<head>
-	<title>Spring Boot</title>
-		<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-		crossorigin="anonymous">
+	<title>Spring Boot Document Manager</title>
+		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/GouthamGuna/Portfolio-.com/main/assets/img/icon.jpg">
 	</head>
 	<body>
-		<h1>Document Manager</h1>
+		<!--<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+			   Brand 
+			  <a class="navbar-brand" href="#">Document Manager</a>
+			
+			   Toggler/collapsibe Button
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			
+			   Navbar links 
+			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+			    <ul class="navbar-nav">
+			      <li class="nav-item">
+			        <a class="nav-link" th:href="@{/login}">Logout</a>
+			      </li>
+			    </ul>
+			  </div>
+		</nav>-->
+		<br>
+		<div class="container-fluid text-center" style="color: orange;">
+			<h1>Document Manager</h1>
+		</div>
+		
+		<div class="text-success">
+			<h2>[[${message}]]</h2>
+		</div>
+	
+		<form th:action="@{/upload}" method="post" enctype="multipart/form-data" style="max-width:500px; margin:0 auto">
+		
+		  <div class="form-group">
+		    <label>Upload Your Files :</label>
+		    <input type="file" class="form-control-file" name="document" required><br>
+		    <input type="submit" class="btn btn-primary" value="upload">
+		  </div>
+		  
+	   </form>
+	   
+	   <div class="row border rounded">
+	     <th:block th:each="doc : ${listDocs}">
+	     <div class="col">
+	     	<div>
+	     		<img th:src="@{/img/doc.jpg}" width="50" />
+	     	</div>
+	     	<div>
+	     		[[${doc.name}]]
+	     	</div>
+	     </th:block>
+	   </div>
 	</body>
 </html>

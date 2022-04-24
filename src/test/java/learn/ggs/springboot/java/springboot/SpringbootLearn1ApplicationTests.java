@@ -28,7 +28,7 @@ class SpringbootLearn1ApplicationTests {
 	@Test
 	@Rollback(false)
 	void testinsertDocument() throws IOException {
-		File file = new File("E:\\Documents\\student65478.jpeg");
+		File file = new File("C:\\Goutham Sankar\\Downloads\\013.jpg");
 		Document document = new Document();
 		document.setName(file.getName());
 		

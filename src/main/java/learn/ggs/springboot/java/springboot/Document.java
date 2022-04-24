@@ -30,6 +30,17 @@ public class Document {
 	
 	private byte [] content;
 
+	public Document(long id, String name, long size) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.size = size;
+	}
+	
+	public Document() {
+		
+	}
+
 	public long getId() {
 		return id;
 	}
