@@ -28,3 +28,15 @@
 	
 	* spring-boot-maven-plugin.
 	
+#  SQL Table Queries:
+
+		CREATE TABLE `document` (
+		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+		  `content` mediumblob,
+		  `name` varchar(215) NOT NULL,
+		  `size` bigint(20) NOT NULL,
+		  `upload_time` datetime DEFAULT NULL,
+		  PRIMARY KEY (`id`),
+		  UNIQUE KEY `UK_36vs45u76s1n950kwxfa5lyhc` (`name`)
+		) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1
+	
