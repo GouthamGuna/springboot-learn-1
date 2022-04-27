@@ -6,16 +6,16 @@
 		<link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/GouthamGuna/Portfolio-.com/main/assets/img/icon.jpg">
 	</head>
 	<body>
-		<!--<nav class="navbar navbar-expand-md bg-primary navbar-dark">
-			   Brand 
-			  <a class="navbar-brand" href="#">Document Manager</a>
+	  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+			   <!--Brand -->
+			  <a class="navbar-brand" href="https://gouthamguna.github.io/in/">Document Manager</a>
 			
-			   Toggler/collapsibe Button
+			  <!-- Toggler/collapsibe Button-->
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			
-			   Navbar links 
+			   <!--Navbar links--> 
 			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
@@ -23,7 +23,7 @@
 			      </li>
 			    </ul>
 			  </div>
-		</nav>-->
+		</nav>															
 		<br>
 		<div class="container-fluid text-center" style="color: orange;">
 			<h1>Document Manager</h1>
@@ -50,9 +50,16 @@
 	     		<img th:src="@{/img/doc.jpg}" width="50" />
 	     	</div>
 	     	<div>
-	     		[[${doc.name}]]
+	     		<a th:href="@{'/download?id=' + ${doc.id}}">[[${doc.name}]]</a>
 	     	</div>
+<<<<<<< Updated upstream
 	     </div>
+=======
+	     	<div>
+	     		([[${#numbers.formatInteger(doc.size, 4, 'COMMA')}]] bytes)
+	     	</div>
+	     </div>	
+>>>>>>> Stashed changes
 	     </th:block>
 	   </div>
 	</body>

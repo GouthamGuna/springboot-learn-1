@@ -4,8 +4,13 @@ import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +49,28 @@ public class AppController {
 		ra.addFlashAttribute("message", "The File has been Upload Successfully.");
 		
 		return"redirect:/";
+	}
+	
+	@GetMapping("/download")
+	public void downloadfile(@Param("id") Long id, HttpServletResponse response) throws Exception {
+		Optional<Document> result=repo.findById(id);
+		
+		if(!result.isPresent()) {
+			throw new Exception("Could Not Find Document With ID: " + id);
+		}
+		
+		Document document = result.get();
+		
+		response.setContentType("application/octet-stream");
+		String headerKey = "Content-Disposition";
+		String headervalue = "attachment; filename=" + document.getName();
+		
+		response.setHeader(headerKey, headervalue);
+		
+		ServletOutputStream outputStream = response.getOutputStream();
+		
+		outputStream.write(document.getContent());
+		outputStream.close();
 	}
 
 }
