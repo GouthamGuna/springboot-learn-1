@@ -45,21 +45,17 @@
 	   
 	   <div class="row border rounded">
 	     <th:block th:each="doc : ${listDocs}">
-	     <div class="col">
-	     	<div>
-	     		<img th:src="@{/img/doc.jpg}" width="50" />
-	     	</div>
-	     	<div>
-	     		<a th:href="@{'/download?id=' + ${doc.id}}">[[${doc.name}]]</a>
-	     	</div>
-<<<<<<< Updated upstream
-	     </div>
-=======
-	     	<div>
-	     		([[${#numbers.formatInteger(doc.size, 4, 'COMMA')}]] bytes)
-	     	</div>
-	     </div>	
->>>>>>> Stashed changes
+	     	<div class="col">
+		     	<div>
+		     		<img th:src="@{/img/doc.jpg}" width="50" />
+		     	</div>
+		     	<div>
+		     		<a th:href="@{'/download?id=' + ${doc.id}}">[[${doc.name}]]</a>
+		     	</div>
+		     	<div>
+		     		([[${#numbers.formatInteger(doc.size, 4, 'COMMA')}]] bytes)
+		     	</div>
+	       </div>	
 	     </th:block>
 	   </div>
 	</body>
